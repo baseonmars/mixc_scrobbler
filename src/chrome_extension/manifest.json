@@ -1,0 +1,24 @@
+{
+  // Required
+  "name": "Scrobble Cloud",
+  "version": "0.1a",
+
+  // Recommended
+  "description": "Scrobble timecoded mixcloud cloudcasts",
+  //"icons": { ... },
+  "default_locale": "en",
+
+  // Pick one (or none)
+  "browser_action": {...},
+  "page_action": {...},
+  "theme": {...},
+  "app": {...},
+
+  // Add any of these that you need
+  "background_page": "background.html",
+  "content_scripts": ['content.js', 'js/ScrobbleCloud.js', 'js/Track.js', 'js/Tracklist.js'],
+  "homepage_url": "http://baseonmars.co.uk/code/scrobble_cloud",
+  //"omnibox": { "keyword" : "aString" },
+  "permissions": ['tabs'],
+  //"update_url": "http://path/to/updateInfo.xml"
+}
