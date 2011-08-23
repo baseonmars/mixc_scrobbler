@@ -16,7 +16,7 @@
 
   // Add any of these that you need
   "background_page": "background.html",
-  "content_scripts": ['content.js', 'js/ScrobbleCloud.js', 'js/Track.js', 'js/Tracklist.js'],
+  "content_scripts": ['scripts.js'],
   "homepage_url": "http://baseonmars.co.uk/code/scrobble_cloud",
   //"omnibox": { "keyword" : "aString" },
   "permissions": ['tabs'],
