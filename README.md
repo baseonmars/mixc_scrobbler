@@ -39,7 +39,7 @@ TODO
 LICENCE
 -------
 
-Copyright (C) <2011> by <Dan Etherington (dan@baseonmars.co.uk)>
+Copyright (C) 2011 by Dan Etherington (dan@baseonmars.co.uk)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
