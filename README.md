@@ -1,10 +1,12 @@
 Introduction
 ------------
 
-Chrome extension for scanning a mixcloud page and scrobbling tracks as they play.
+MixC Scrobbler is a chrome extension for scrobbling a MixCloud.com cloudcast in realtime.
 
 I'm going to try and keep the main engine library and vm agnostic so it should be 
 easy to create a firefox, opera, (etc...) extension.
+
+The project homepage is: https://github.com/baseonmars/mixc\_scrobbler
 
 Building the extension
 ----------------------

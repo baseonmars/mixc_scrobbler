@@ -4,7 +4,7 @@
 * @param {String} title The title of the track
 * @param {String} title The artist atributed to the track
 */
-ScrobbleCloud.Track = function (title, artist) {
+MixCScrobbler.Track = function (title, artist) {
 
     this.SCROBBLE_TIME = 20;
     this.title = title;
@@ -13,7 +13,7 @@ ScrobbleCloud.Track = function (title, artist) {
     this.scrobbled = false;
 };
 
-ScrobbleCloud.Track.prototype.matches = function (track) {
+MixCScrobbler.Track.prototype.matches = function (track) {
 
     var matches = false
     if (!track) {
@@ -26,12 +26,12 @@ ScrobbleCloud.Track.prototype.matches = function (track) {
 };
 
 
-ScrobbleCloud.Track.prototype.scrobble = function () {
+MixCScrobbler.Track.prototype.scrobble = function () {
 
     this.scrobbled = true;
 };
 
-ScrobbleCloud.Track.prototype.toString = function () {
+MixCScrobbler.Track.prototype.toString = function () {
 
     return this.title + ' - ' + this.artist;
 }

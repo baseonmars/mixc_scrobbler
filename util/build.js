@@ -5,7 +5,7 @@ var SRC_PATH = "src/";
 var DEST_PATH = "build/";
 
 var js_files = [
-    'ScrobbleCloud.js',
+    'MixCScrobbler.js',
     'Track.js',
     'TrackList.js',
     'chrome_extension/content.js'
@@ -46,9 +46,20 @@ fs.closeSync(script_file);
 console.info("copying files");
 for (file in misc_files) {
     var filename = misc_files[file];
-    newFile = fs.createWriteStream(DEST_PATH + filename.replace('chrome_extension\/',''));     
+    newFile = fs.createWriteStream(DEST_PATH + filename.replace('chrome_extension\/',''), {flags: "w"});     
     oldFile = fs.createReadStream(SRC_PATH + filename);
+    oldFile.addListener("data", function(chunk) {
+        console.log('data happened')
+        newFile.write(chunk);
+    });
+
+    oldFile.addListener("close",function() {
+        console.log('close happened')
+        newFile.end();
+    });
+
     newFile.once('open', function(fd){
+        console.log('open happened')
         util.pump(oldFile, newFile);
     });     
 }

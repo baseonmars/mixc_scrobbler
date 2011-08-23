@@ -1,4 +1,4 @@
-ScrobbleCloud.Tracklist = function (tracklist) {
+MixCScrobbler.Tracklist = function (tracklist) {
 
     this.PLAYING_CLASS = '.player-section-playing';
     this.TITLE_CLASS   = '.tracklisttrackname';
@@ -6,7 +6,7 @@ ScrobbleCloud.Tracklist = function (tracklist) {
     this.tracklist = tracklist;
 };
 
-ScrobbleCloud.Tracklist.prototype.scan = function () {
+MixCScrobbler.Tracklist.prototype.scan = function () {
 
     var playingTrack = this._getPlayingTrack();
 
@@ -17,7 +17,7 @@ ScrobbleCloud.Tracklist.prototype.scan = function () {
     }
 };
 
-ScrobbleCloud.Tracklist.prototype._getPlayingTrack = function () {
+MixCScrobbler.Tracklist.prototype._getPlayingTrack = function () {
 
     var track, title, artist;
 
@@ -25,10 +25,10 @@ ScrobbleCloud.Tracklist.prototype._getPlayingTrack = function () {
     title  = track.querySelector(this.TITLE_CLASS).innerHTML;
     artist = track.querySelector(this.ARTIST_CLASS).innerHTML;
 
-    return new ScrobbleCloud.Track(title, artist);
+    return new MixCScrobbler.Track(title, artist);
 }
 
-ScrobbleCloud.Tracklist.prototype.getCurrentTrack = function () {
+MixCScrobbler.Tracklist.prototype.getCurrentTrack = function () {
 
     if (this.currentTrack == null) {
         this.currentTrack = this._getPlayingTrack();

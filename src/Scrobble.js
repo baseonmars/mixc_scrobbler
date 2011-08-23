@@ -1,4 +1,4 @@
-ScrobbleCloud.Scrobble = function(track) {
+MixCScrobbler.Scrobble = function(track) {
 
     if (!track.title) {
         throw "Track title required";

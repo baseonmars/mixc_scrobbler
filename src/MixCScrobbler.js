@@ -1,9 +1,9 @@
 /**
-* ScrobbleCloud - Library for scrobbling MixCloud
+* MixCScrobbler - Library for scrobbling MixCloud
 * copyright 2011 Dan Etherington <dan@baseonmars.co.uk>
 * released under the BSD licence
 */
-ScrobbleCloud = function () {
+MixCScrobbler = function () {
 
     this.TRACKLIST_SELECTOR = '#cloudcast-sections-table'; 
     this.SCROBBLE_INTERVAL = 30000;
@@ -14,13 +14,13 @@ ScrobbleCloud = function () {
 * Loads the first tracklist from an html document
 * @param {HTMLNode} doc The html document containing the playlist
 */
-ScrobbleCloud.prototype.loadTracklist = function (doc) {
+MixCScrobbler.prototype.loadTracklist = function (doc) {
 
     var tracklist = doc.querySelector(this.TRACKLIST_SELECTOR);
-    this.tracklist = new ScrobbleCloud.Tracklist(tracklist);
+    this.tracklist = new MixCScrobbler.Tracklist(tracklist);
 };
 
-ScrobbleCloud.prototype.start = function () {
+MixCScrobbler.prototype.start = function () {
 
     var scope = this;
     this.interval = setInterval(function () {
@@ -32,12 +32,12 @@ ScrobbleCloud.prototype.start = function () {
 
 };
 
-ScrobbleCloud.prototype.stop = function () {
+MixCScrobbler.prototype.stop = function () {
 
     clearInterval(this.interval);
 };
 
-ScrobbleCloud.prototype.shouldScrobble = function (track) {
+MixCScrobbler.prototype.shouldScrobble = function (track) {
 
     var scrobble = false;
     if ((new Date() - track.created) >= this.SCROBBLE_INTERVAL) {
@@ -46,7 +46,7 @@ ScrobbleCloud.prototype.shouldScrobble = function (track) {
     return scrobble;
 };
 
-ScrobbleCloud.prototype.scrobble = function () {
+MixCScrobbler.prototype.scrobble = function () {
 
     var currentTrack = this.tracklist.getCurrentTrack();
 

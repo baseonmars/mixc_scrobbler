@@ -1,6 +1,6 @@
 {
   // Required
-  "name": "Scrobble Cloud",
+  "name": "Mixcloud Scrobbler",
   "version": "0.1a",
 
   // Recommended
@@ -9,16 +9,16 @@
   "default_locale": "en",
 
   // Pick one (or none)
-  "browser_action": {...},
-  "page_action": {...},
-  "theme": {...},
-  "app": {...},
+  //"browser_action": {...},
+  //"page_action": {...},
+  //"theme": {...},
+  //"app": {...},
 
   // Add any of these that you need
   "background_page": "background.html",
-  "content_scripts": ['scripts.js'],
+  "content_scripts": ["scripts.js"],
   "homepage_url": "http://baseonmars.co.uk/code/scrobble_cloud",
   //"omnibox": { "keyword" : "aString" },
-  "permissions": ['tabs'],
+  "permissions": ["tabs"]
   //"update_url": "http://path/to/updateInfo.xml"
 }

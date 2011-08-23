@@ -1,4 +1,4 @@
-require('../src/ScrobbleCloud.js');
+require('../src/MixCScrobbler.js');
 require('../src/Tracklist.js');
 require('../src/Track.js');
 
@@ -6,9 +6,9 @@ describe('Tracklist', function () {
 
     var jsdom, tw, track, window;
     beforeEach(function () {
-        track = new ScrobbleCloud.Track('1/U = Daven’T Nay', 'Radioactive Man');
+        track = new MixCScrobbler.Track('1/U = Daven’T Nay', 'Radioactive Man');
         window = loadPlaylistWindow();
-        tw = new ScrobbleCloud.Tracklist(
+        tw = new MixCScrobbler.Tracklist(
             window.document.getElementById('cloudcast-sections-table'));
     });
 

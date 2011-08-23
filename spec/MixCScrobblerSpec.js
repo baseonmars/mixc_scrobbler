@@ -1,17 +1,17 @@
-describe('ScrobbleCloud', function () {
+describe('MixCScrobbler', function () {
 
     var sc, track, window;
     beforeEach(function () {
 
-        track = new ScrobbleCloud.Track('1/U = Daven’T Nay', 'Radioactive Man');
+        track = new MixCScrobbler.Track('1/U = Daven’T Nay', 'Radioactive Man');
         window = loadPlaylistWindow();
-        sc = new ScrobbleCloud();
+        sc = new MixCScrobbler();
         sc.loadTracklist(window.document);
     });
 
     it("should load a tracklist from html", function () {
 
-        expect(sc.tracklist instanceof ScrobbleCloud.Tracklist).toBe(true);
+        expect(sc.tracklist instanceof MixCScrobbler.Tracklist).toBe(true);
     });
 
     it("should start the tracklist", function () {

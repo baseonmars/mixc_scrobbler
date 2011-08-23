@@ -1,4 +1,4 @@
-require('../src/ScrobbleCloud.js');
+require('../src/MixCScrobbler.js');
 require('../src/Scrobble.js');
 require('../src/Track.js');
 
@@ -8,8 +8,8 @@ describe('Scrobble', function () {
 
     beforeEach(function () {
 
-        track = new ScrobbleCloud.Track('Uranium', 'Radioactive Man');
-        scrobble = new ScrobbleCloud.Scrobble(track);
+        track = new MixCScrobbler.Track('Uranium', 'Radioactive Man');
+        scrobble = new MixCScrobbler.Scrobble(track);
     });
 
     it("should have a track", function () {
@@ -19,27 +19,27 @@ describe('Scrobble', function () {
 
     it("should not accept a track with a blank title", function () {
 
-        var track = new ScrobbleCloud.Track('', 'Radioactive Man');
+        var track = new MixCScrobbler.Track('', 'Radioactive Man');
         expect(function () {
-            new ScrobbleCloud.Scrobble(track);
+            new MixCScrobbler.Scrobble(track);
         }).toThrow("Track title required");
 
-        var track2 = new ScrobbleCloud.Track(null, 'Radioactive Man');
+        var track2 = new MixCScrobbler.Track(null, 'Radioactive Man');
         expect(function () {
-            new ScrobbleCloud.Scrobble(track2);
+            new MixCScrobbler.Scrobble(track2);
         }).toThrow("Track title required");
     });
 
     it("should not accept a track with a blank artist", function () {
 
-        var track = new ScrobbleCloud.Track('Uranium', '');
+        var track = new MixCScrobbler.Track('Uranium', '');
         expect(function () {
-            new ScrobbleCloud.Scrobble(track);
+            new MixCScrobbler.Scrobble(track);
         }).toThrow("Track artist required");
 
-        var track2 = new ScrobbleCloud.Track('Uranium', null);
+        var track2 = new MixCScrobbler.Track('Uranium', null);
         expect(function () {
-            new ScrobbleCloud.Scrobble(track2);
+            new MixCScrobbler.Scrobble(track2);
         }).toThrow("Track artist required");
     });
 
