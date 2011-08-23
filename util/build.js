@@ -1,23 +1,28 @@
 var fs = require('fs');
 var util = require('util');
 
-var SRC_PATH = "../src/";
-var DEST_PATH = "../build/";
+var SRC_PATH = "src/";
+var DEST_PATH = "build/";
 
-var files = [
+var js_files = [
     'ScrobbleCloud.js',
     'Track.js',
     'TrackList.js'
-    ];
+];
+
+var misc_files = [
+    'background.html',
+    'manifest.json'
+];
 
 var scripts = [];
 
-for (var file in files) {
+for (var file in js_files) {
 
-    var filename = files[file];
+    var filename = js_files[file];
     console.info("Reading " + filename);
 
-    scripts.push(fs.readFileSync(SRC_PATH+files[file]));
+    scripts.push(fs.readFileSync(SRC_PATH+js_files[file]));
 }
 
 console.info("Joining files");
@@ -34,5 +39,18 @@ try {
 
 script_file = fs.openSync(DEST_PATH + "scripts.js", 'w');
 console.info("Writing javascript files to " + DEST_PATH + 'scripts.js');
-fs.write(script_file, script);
+fs.writeSync(script_file, script);
+fs.closeSync(script_file);
+
+console.info("copying files");
+
+for (file in misc_files) {
+    var filename = misc_files[file];
+    newFile = fs.createWriteStream(DEST_PATH + filename);     
+    oldFile = fs.createReadStream(SRC_PATH + filename);
+    newFile.once('open', function(fd){
+        util.pump(oldFile, newFile);
+    });     
+}
+
 
