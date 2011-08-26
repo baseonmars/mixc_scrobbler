@@ -26,7 +26,7 @@ MixCScrobbler.Tracklist.prototype._getPlayingTrack = function () {
     artist = track.querySelector(this.ARTIST_CLASS).innerHTML;
 
     return new MixCScrobbler.Track(title, artist);
-}
+};
 
 MixCScrobbler.Tracklist.prototype.getCurrentTrack = function () {
 
@@ -35,4 +35,4 @@ MixCScrobbler.Tracklist.prototype.getCurrentTrack = function () {
     }
 
     return this.currentTrack;
-}
+};

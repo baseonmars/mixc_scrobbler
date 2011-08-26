@@ -1,7 +1,18 @@
 (function () {
-    if (/mixcloud.com/.test(location.host)) {
-        var sc = new MixCScrobbler();
-        sc.loadPlaylistWindow(document.body);
-        sc.start();
-    }
-});
+    var loaded = false;
+    var interval = setInterval( function () {
+        console.log("trying to load scrobbler");
+        if (loaded) {
+            clearInterval(interval);
+            return;
+        }
+
+        if (document.getElementById("cloudcast-sections-table")) {
+            console.log("starting scrobbler");
+            sc = new MixCScrobbler();
+            sc.loadTracklist(document.body);
+            sc.start();
+            loaded = true;
+        }
+    }, 5000);
+}());

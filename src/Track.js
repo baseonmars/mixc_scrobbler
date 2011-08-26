@@ -6,7 +6,7 @@
 */
 MixCScrobbler.Track = function (title, artist) {
 
-    this.SCROBBLE_TIME = 20;
+    console.debug("Creating Track:", title, artist);
     this.title = title;
     this.artist = artist;
     this.created = new Date();
@@ -34,4 +34,4 @@ MixCScrobbler.Track.prototype.scrobble = function () {
 MixCScrobbler.Track.prototype.toString = function () {
 
     return this.title + ' - ' + this.artist;
-}
+};

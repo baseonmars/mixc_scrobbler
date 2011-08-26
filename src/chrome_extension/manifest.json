@@ -1,24 +1,26 @@
 {
-  // Required
-  "name": "Mixcloud Scrobbler",
-  "version": "0.1a",
+    // Required
+    "name": "Mixcloud Scrobbler",
+    "version": "0.1",
 
-  // Recommended
-  "description": "Scrobble timecoded mixcloud cloudcasts",
-  //"icons": { ... },
-  "default_locale": "en",
+    // Recommended
+    "description": "Scrobble timecoded mixcloud cloudcasts",
+    //"icons": { ... },
 
-  // Pick one (or none)
-  //"browser_action": {...},
-  //"page_action": {...},
-  //"theme": {...},
-  //"app": {...},
+    // Pick one (or none)
+    //"browser_action": {...},
+    //"page_action": {...},
+    //"theme": {...},
+    //"app": {...},
 
-  // Add any of these that you need
-  "background_page": "background.html",
-  "content_scripts": ["scripts.js"],
-  "homepage_url": "http://baseonmars.co.uk/code/scrobble_cloud",
-  //"omnibox": { "keyword" : "aString" },
-  "permissions": ["tabs"]
-  //"update_url": "http://path/to/updateInfo.xml"
+    // Add any of these that you need
+    "background_page": "background.html",
+    "content_scripts": [{
+        "matches": ["http://www.mixcloud.com/player*"],
+        "js": ["./scripts.js"]
+    }],
+    "homepage_url": "http://baseonmars.co.uk/code/scrobble_cloud",
+    //"omnibox": { "keyword" : "aString" },
+    "permissions": ["tabs"]
+    //"update_url": "http://path/to/updateInfo.xml"
 }

@@ -54,8 +54,9 @@ MixCScrobbler.prototype.scrobble = function () {
 
     if (this.shouldScrobble(currentTrack)) {
         currentTrack.scrobble();
+        console.debug("Scrobbling", currentTrack);
     }
-}
+};
 
 
 
