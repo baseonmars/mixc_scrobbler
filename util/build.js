@@ -1,3 +1,10 @@
+function cp(source, destination, callback){
+    fs.readFile(source, function (err, buf) {
+        if (err) return callback(err);
+        fs.writeFile(destination, buf, callback);
+    });
+}
+
 var fs = require('fs');
 var util = require('util');
 
@@ -27,7 +34,7 @@ for (var file in js_files) {
 }
 
 console.info("Joining files");
-var script = scripts.join();
+var script = scripts.join("\n");
 
 try {
     console.info("Checking for '" + DEST_PATH + "'");
@@ -44,24 +51,10 @@ fs.writeSync(script_file, script);
 fs.closeSync(script_file);
 
 console.info("copying files");
+
 for (file in misc_files) {
     var filename = misc_files[file];
-    newFile = fs.createWriteStream(DEST_PATH + filename.replace('chrome_extension\/',''), {flags: "w"});     
-    oldFile = fs.createReadStream(SRC_PATH + filename);
-    oldFile.addListener("data", function(chunk) {
-        console.log('data happened')
-        newFile.write(chunk);
-    });
-
-    oldFile.addListener("close",function() {
-        console.log('close happened')
-        newFile.end();
-    });
-
-    newFile.once('open', function(fd){
-        console.log('open happened')
-        util.pump(oldFile, newFile);
-    });     
+    cp(SRC_PATH + filename, DEST_PATH + filename.replace('chrome_extension\/',''));     
 }
 
 
